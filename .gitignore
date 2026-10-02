@@ -1,0 +1,19 @@
+# Arduino build artifacts
+.build/
+build/
+*.elf
+*.bin
+*.hex
+*.a
+*.o
+
+# IDEs and Tools
+.vscode/
+.pio/
+*.code-workspace
+.DS_Store
+
+# It's a good practice to ignore configuration files with actual credentials,
+# but since config.h currently contains placeholder credentials, we leave it tracked.
+# If you add real credentials to config.h, uncomment the line below.
+# config.h

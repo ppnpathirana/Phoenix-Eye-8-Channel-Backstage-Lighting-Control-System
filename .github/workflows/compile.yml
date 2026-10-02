@@ -1,0 +1,27 @@
+name: Compile Sketch
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Compile Arduino sketch
+      uses: arduino/compile-sketches@v1
+      with:
+        fqbn: esp32:esp32:esp32doit-devkit-v1
+        platforms: |
+          - name: esp32:esp32
+            source-url: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+        libraries: |
+          - name: ArduinoJson
+        sketch-paths: |
+          .
